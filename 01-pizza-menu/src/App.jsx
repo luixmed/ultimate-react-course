@@ -1,5 +1,16 @@
+import Header from "./components/Header";
+import Menu from "./components/Menu";
+import Footer from "./components/Footer";
+import { Div } from "./AppStyled";
+
 function App() {
-  return <h1>Hello World!</h1>;
+  return (
+    <Div className="container">
+      <Header />
+      <Menu />
+      <Footer />
+    </Div>
+  );
 }
 
 export default App;
