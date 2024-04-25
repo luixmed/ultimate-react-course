@@ -1,7 +1,7 @@
 import { Li } from "./PizzaStyled";
 
-function Pizza(props) {
-  const { name, photoName, price, ingredients, soldOut } = props.pizzaObj;
+function Pizza({ pizzaObj }) {
+  const { name, photoName, price, ingredients, soldOut } = pizzaObj;
 
   return (
     <Li soldout={soldOut}>
@@ -9,7 +9,7 @@ function Pizza(props) {
       <div>
         <h3>{name}</h3>
         <p>{ingredients}</p>
-        <span>{price}</span>
+        <span>{soldOut ? "SOLD OUT" : price}</span>
       </div>
     </Li>
   );
