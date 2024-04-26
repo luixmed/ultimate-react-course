@@ -10,12 +10,30 @@ const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%;
-    color: #555;
   }
 
   body{
+    color: #555;
     font-family: sans-serif;
     font-size: 1.6rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  button{
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: inherit;
+  }
+
+  input, select{
+    border: none;
+    outline: none;
+    font-family: inherit;
   }
 `;
 
