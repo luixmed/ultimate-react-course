@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   AddBtn,
   Details,
@@ -9,6 +9,7 @@ import {
 } from "./MovieDetailsStyles";
 import Loader from "./Loader";
 import StarRating from "./StarRating";
+import { useKey } from "../hooks/useKey";
 
 const OMDb_KEY = "ec52bb49";
 
@@ -21,6 +22,8 @@ function MovieDetails({
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState("");
+
+  const countRating = useRef(0);
 
   const isWatched = watched
     .map((movie) => movie.imdbID)
@@ -74,20 +77,12 @@ function MovieDetails({
 
   useEffect(
     function () {
-      function callback(e) {
-        if (e.code === "Escape") {
-          onCloseMovieDetails();
-        }
-      }
-
-      document.addEventListener("keydown", callback);
-
-      return function () {
-        document.removeEventListener("keydown", callback);
-      };
+      userRating && countRating.current++;
     },
-    [onCloseMovieDetails]
+    [userRating]
   );
+
+  useKey("Escape", onCloseMovieDetails);
 
   function handleAddMovie() {
     const newWatchedMovie = {
@@ -98,6 +93,7 @@ function MovieDetails({
       imdbRating: Number(imdbRating),
       runtime: Number(runtime.split().at(0)),
       userRating,
+      countUserRatingDecisions: countRating.current,
     };
     onAddWatchedMovieList(newWatchedMovie);
     onCloseMovieDetails();
