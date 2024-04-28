@@ -1,8 +1,8 @@
 import { Li } from "./MovieStyles";
 
-function Movie({ movie }) {
+function Movie({ movie, onSelectedMovieId }) {
   return (
-    <Li>
+    <Li onClick={() => onSelectedMovieId(movie.imdbID)}>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
       <h3>{movie.Title}</h3>
       <div>

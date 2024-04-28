@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { Input } from "./SearchStyles";
 
-function Search() {
-  const [query, setQuery] = useState("");
-
+function Search({ query, setQuery }) {
   return (
     <Input
       type="text"

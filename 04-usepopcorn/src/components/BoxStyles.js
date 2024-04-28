@@ -1,26 +1,25 @@
 import styled from "styled-components";
 
-export const Div = styled.div`
+export const BoxStyled = styled.div`
+  /* Box */
   border-radius: 11px;
 
+  /* Layout */
   position: relative;
 
   /* Style */
   background-color: #2a2e33;
 
-  button {
+  .open-close {
     /* Font */
     color: white;
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-size: 2.4rem;
+    font-weight: 500;
 
     /* Box */
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 3.6rem;
+    height: 3.6rem;
     border-radius: 50%;
-
-    text-align: center;
-    line-height: 2.4rem;
 
     /* Style */
     background-color: #212529;

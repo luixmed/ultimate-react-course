@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { Div } from "./BoxStyles";
+import { BoxStyled } from "./BoxStyles";
 
 function Box({ children }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <Div>
-      <button onClick={() => setIsOpen((open) => !open)}>
+    <BoxStyled>
+      <button onClick={() => setIsOpen((open) => !open)} className="open-close">
         {isOpen ? "-" : "+"}
       </button>
       {isOpen && children}
-    </Div>
+    </BoxStyled>
   );
 }
 
