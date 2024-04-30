@@ -6,10 +6,12 @@ import Main from "./components/Main";
 import Loader from "./components/Loader";
 import Error from "./components/Error";
 import StartScreen from "./components/StartScreen";
+import Question from "./components/Question";
 
 const initialState = {
   questions: [],
   status: "loading",
+  index: 0,
 };
 
 function reducer(state, action) {
@@ -25,13 +27,18 @@ function reducer(state, action) {
         ...state,
         status: "error",
       };
+    case "start":
+      return {
+        ...state,
+        status: "active",
+      };
   }
 }
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { questions, status } = state;
+  const { questions, status, index } = state;
 
   // ***** DERIVED STATE *****
   const numberQuestions = questions.length;
@@ -58,7 +65,13 @@ function App() {
           {status === "loading" && <Loader />}
           {status === "error" && <Error />}
           {status === "ready" && (
-            <StartScreen numberQuestions={numberQuestions} />
+            <StartScreen
+              numberQuestions={numberQuestions}
+              dispatch={dispatch}
+            />
+          )}
+          {status === "active" && (
+            <Question currentQuestion={questions[index]} />
           )}
         </Main>
       </AppStyled>

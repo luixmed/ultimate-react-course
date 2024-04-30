@@ -51,4 +51,12 @@ export const GlobalStyles = createGlobalStyle`
   button:not([disabled]):hover {
     background-color: var(--color-darkest);
   }
+
+  button[disabled]:hover {
+    cursor: not-allowed;
+  }
+
+  ul {
+    list-style: none;
+  }
 `;
