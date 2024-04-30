@@ -2,6 +2,8 @@ import { useEffect, useReducer } from "react";
 import { AppStyled } from "./AppStyles";
 import { GlobalStyles } from "./GlobalStyles";
 import Header from "./components/Header";
+import Main from "./components/Main";
+import Loader from "./components/Loader";
 
 const initialState = {
   questions: [],
@@ -42,11 +44,13 @@ function App() {
     }
     fetchQuestions();
   }, []);
+
   return (
     <>
       <GlobalStyles />
       <AppStyled>
         <Header />
+        <Main>{status === "loading" && <Loader />}</Main>
       </AppStyled>
     </>
   );
