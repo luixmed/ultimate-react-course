@@ -4,6 +4,7 @@ import { GlobalStyles } from "./GlobalStyles";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Loader from "./components/Loader";
+import Error from "./components/Error";
 
 const initialState = {
   questions: [],
@@ -50,7 +51,10 @@ function App() {
       <GlobalStyles />
       <AppStyled>
         <Header />
-        <Main>{status === "loading" && <Loader />}</Main>
+        <Main>
+          {status === "loading" && <Loader />}
+          {status === "error" && <Error />}
+        </Main>
       </AppStyled>
     </>
   );
