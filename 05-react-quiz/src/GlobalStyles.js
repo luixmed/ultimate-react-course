@@ -36,4 +36,19 @@ export const GlobalStyles = createGlobalStyle`
     /* Styles */
     background-color: var(--color-darkest);
   }
+
+  button {
+    cursor: pointer;
+    display: inline-block;
+    color: inherit;
+    border: none;
+    outline: none;
+
+    /* Animation */
+    transition: all 0.3s;
+  }
+
+  button:not([disabled]):hover {
+    background-color: var(--color-darkest);
+  }
 `;
