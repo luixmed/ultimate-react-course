@@ -10,6 +10,10 @@ import Question from "./components/Question";
 import NextButton from "./components/NextButton";
 import Progress from "./components/Progress";
 import FinishScreen from "./components/FinishScreen";
+import Footer from "./components/Footer";
+import Timer from "./components/Timer";
+
+const SECONDS_PER_QUESTION = 20;
 
 const initialState = {
   questions: [],
@@ -18,6 +22,7 @@ const initialState = {
   answer: null,
   totalPoints: 0,
   highscore: 0,
+  secondsRemaining: null,
 };
 
 function reducer(state, action) {
@@ -37,6 +42,13 @@ function reducer(state, action) {
       return {
         ...state,
         status: "active",
+        secondsRemaining: state.questions.length * SECONDS_PER_QUESTION,
+      };
+    case "tick":
+      return {
+        ...state,
+        secondsRemaining: state.secondsRemaining - 1,
+        status: state.secondsRemaining === 0 ? "finished" : state.status,
       };
     case "newAnswer": {
       const question = state.questions.at(state.index);
@@ -78,7 +90,15 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // eslint-disable-next-line no-unused-vars
-  const { questions, status, index, answer, totalPoints, highscore } = state;
+  const {
+    questions,
+    status,
+    index,
+    answer,
+    totalPoints,
+    highscore,
+    secondsRemaining,
+  } = state;
 
   // ***** DERIVED STATE *****
   const numberQuestions = questions.length;
@@ -128,12 +148,18 @@ function App() {
                 dispatch={dispatch}
                 answer={answer}
               />
-              <NextButton
-                dispatch={dispatch}
-                answer={answer}
-                index={index}
-                numberQuestions={numberQuestions}
-              />
+              <Footer>
+                <Timer
+                  secondsRemaining={secondsRemaining}
+                  dispatch={dispatch}
+                />
+                <NextButton
+                  dispatch={dispatch}
+                  answer={answer}
+                  index={index}
+                  numberQuestions={numberQuestions}
+                />
+              </Footer>
             </>
           )}
           {status === "finished" && (
