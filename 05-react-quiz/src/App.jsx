@@ -13,6 +13,7 @@ const initialState = {
   status: "loading",
   index: 0,
   answer: null,
+  totalPoints: 0,
 };
 
 function reducer(state, action) {
@@ -33,11 +34,18 @@ function reducer(state, action) {
         ...state,
         status: "active",
       };
-    case "newAnswer":
+    case "newAnswer": {
+      const question = state.questions.at(state.index);
+
       return {
         ...state,
         answer: action.payload,
+        totalPoints:
+          action.payload === question.correctOption
+            ? state.totalPoints + question.points
+            : state.totalPoints,
       };
+    }
   }
 }
 
