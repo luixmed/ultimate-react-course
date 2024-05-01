@@ -16,16 +16,4 @@ export const StartScreenStyled = styled.div`
     font-weight: 600;
     margin-bottom: 4rem;
   }
-
-  button {
-    font-size: 2rem;
-
-    /* Box */
-    padding: 1.2rem 2.4rem;
-    border: 2px solid var(--color-dark);
-    border-radius: 100px;
-
-    /* Style */
-    background-color: var(--color-dark);
-  }
 `;
