@@ -45,6 +45,35 @@ export const GlobalStyles = createGlobalStyle`
     height: auto;
   }
 
+  label {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    /* Box */
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+
+    /* Font */
+    font-family: inherit;
+    font-size: 1.6rem;
+
+    /* Styles */
+    background-color: var(--color-light--3);
+
+    /* Animation */
+    transition: all 0.2s;
+  }
+
+  input:focus {
+    outline: none;
+    background-color: #fff;
+  }
+
   .cta:link,
   .cta:visited {
     /* Box */
