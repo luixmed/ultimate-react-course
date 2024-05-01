@@ -34,4 +34,21 @@ export const GlobalStyles = createGlobalStyle`
     color: var(--color-light--2);
     line-height: 1.6;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  .cta:link,
+  .cta:visited {
+    display: inline-block;
+    background-color: var(--color-brand--2);
+    color: var(--color-dark--1);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+  }
 `;
