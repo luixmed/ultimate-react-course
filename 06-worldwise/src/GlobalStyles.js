@@ -33,6 +33,5 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     color: var(--color-light--2);
     line-height: 1.6;
-
   }
 `;
