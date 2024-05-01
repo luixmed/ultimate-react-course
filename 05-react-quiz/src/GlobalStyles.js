@@ -38,11 +38,21 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   button {
+    /* General reset */
     cursor: pointer;
     display: inline-block;
     color: inherit;
-    border: none;
-    outline: none;
+
+    /* Font */
+    font-size: 2rem;
+
+    /* Box */
+    padding: 1.2rem 2.4rem;
+    border: 2px solid var(--color-dark);
+    border-radius: 100px;
+
+    /* Style */
+    background-color: var(--color-dark);
 
     /* Animation */
     transition: all 0.3s;
