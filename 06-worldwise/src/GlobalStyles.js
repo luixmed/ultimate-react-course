@@ -39,16 +39,26 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  img {
+    max-width: 100%;
+    display: inline-block;
+    height: auto;
+  }
+
   .cta:link,
   .cta:visited {
+    /* Box */
     display: inline-block;
-    background-color: var(--color-brand--2);
-    color: var(--color-dark--1);
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 1.6rem;
-    font-weight: 600;
     padding: 1rem 3rem;
     border-radius: 5px;
+
+    /* Styles */
+    background-color: var(--color-brand--2);
+
+    /* Font */
+    color: var(--color-dark--1);
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 `;
