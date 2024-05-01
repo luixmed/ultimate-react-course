@@ -1,6 +1,6 @@
 import { FinishScreenStyled } from "./FinishStyle";
 
-function FinishScreen({ points, maxPossiblePoints }) {
+function FinishScreen({ points, maxPossiblePoints, highscore, dispatch }) {
   const percentage = Math.ceil((points / maxPossiblePoints) * 100);
 
   let emoji;
@@ -12,8 +12,12 @@ function FinishScreen({ points, maxPossiblePoints }) {
 
   return (
     <FinishScreenStyled>
-      <span>{emoji}</span> You scored <strong>{points}</strong> out of{" "}
-      {maxPossiblePoints} ({percentage}%)
+      <p>
+        <span>{emoji}</span> You scored <strong>{points}</strong> out of{" "}
+        {maxPossiblePoints} ({percentage}%)
+      </p>
+      <p>(Highscore: {highscore} points)</p>
+      <button onClick={() => dispatch({ type: "restart" })}>Restart</button>
     </FinishScreenStyled>
   );
 }

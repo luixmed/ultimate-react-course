@@ -17,6 +17,7 @@ const initialState = {
   index: 0,
   answer: null,
   totalPoints: 0,
+  highscore: 0,
 };
 
 function reducer(state, action) {
@@ -59,6 +60,16 @@ function reducer(state, action) {
       return {
         ...state,
         status: "finished",
+        highscore:
+          state.totalPoints > state.highscore
+            ? state.totalPoints
+            : state.highscore,
+      };
+    case "restart":
+      return {
+        ...initialState,
+        questions: state.questions,
+        status: "ready",
       };
   }
 }
@@ -67,7 +78,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // eslint-disable-next-line no-unused-vars
-  const { questions, status, index, answer, totalPoints } = state;
+  const { questions, status, index, answer, totalPoints, highscore } = state;
 
   // ***** DERIVED STATE *****
   const numberQuestions = questions.length;
@@ -129,6 +140,8 @@ function App() {
             <FinishScreen
               points={totalPoints}
               maxPossiblePoints={maxPossiblePoints}
+              highscore={highscore}
+              dispatch={dispatch}
             />
           )}
         </Main>
