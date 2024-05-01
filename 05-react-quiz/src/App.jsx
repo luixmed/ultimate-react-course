@@ -8,6 +8,7 @@ import Error from "./components/Error";
 import StartScreen from "./components/StartScreen";
 import Question from "./components/Question";
 import NextButton from "./components/NextButton";
+import Progress from "./components/Progress";
 
 const initialState = {
   questions: [],
@@ -60,10 +61,14 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // eslint-disable-next-line no-unused-vars
-  const { questions, status, index, answer } = state;
+  const { questions, status, index, answer, totalPoints } = state;
 
   // ***** DERIVED STATE *****
   const numberQuestions = questions.length;
+  const maxPossiblePoints = questions.reduce(
+    (prev, cur) => prev + cur.points,
+    0
+  );
 
   useEffect(function () {
     async function fetchQuestions() {
@@ -94,6 +99,13 @@ function App() {
           )}
           {status === "active" && (
             <>
+              <Progress
+                numberQuestions={numberQuestions}
+                answer={answer}
+                index={index}
+                totalPoints={totalPoints}
+                maxPossiblePoints={maxPossiblePoints}
+              />
               <Question
                 currentQuestion={questions[index]}
                 dispatch={dispatch}
