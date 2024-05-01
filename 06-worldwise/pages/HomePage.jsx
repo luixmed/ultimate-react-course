@@ -1,5 +1,11 @@
+import PageNavigation from "../components/PageNavigation";
+
 function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <PageNavigation />
+    </div>
+  );
 }
 
 export default HomePage;

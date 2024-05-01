@@ -1,5 +1,11 @@
+import PageNavigation from "../components/PageNavigation";
+
 function Product() {
-  return <div>Product</div>;
+  return (
+    <div>
+      <PageNavigation />
+    </div>
+  );
 }
 
 export default Product;

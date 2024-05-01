@@ -1,5 +1,11 @@
+import PageNavigation from "../components/PageNavigation";
+
 function Login() {
-  return <div>Login</div>;
+  return (
+    <div>
+      <PageNavigation />
+    </div>
+  );
 }
 
 export default Login;

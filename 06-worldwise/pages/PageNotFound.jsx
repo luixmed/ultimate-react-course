@@ -1,6 +1,6 @@
 import PageNavigation from "../components/PageNavigation";
 
-function Pricing() {
+function PageNotFound() {
   return (
     <div>
       <PageNavigation />
@@ -8,4 +8,4 @@ function Pricing() {
   );
 }
 
-export default Pricing;
+export default PageNotFound;
