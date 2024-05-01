@@ -12,6 +12,7 @@ const initialState = {
   questions: [],
   status: "loading",
   index: 0,
+  answer: null,
 };
 
 function reducer(state, action) {
@@ -32,13 +33,19 @@ function reducer(state, action) {
         ...state,
         status: "active",
       };
+    case "newAnswer":
+      return {
+        ...state,
+        answer: action.payload,
+      };
   }
 }
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { questions, status, index } = state;
+  // eslint-disable-next-line no-unused-vars
+  const { questions, status, index, answer } = state;
 
   // ***** DERIVED STATE *****
   const numberQuestions = questions.length;
@@ -71,7 +78,11 @@ function App() {
             />
           )}
           {status === "active" && (
-            <Question currentQuestion={questions[index]} />
+            <Question
+              currentQuestion={questions[index]}
+              dispatch={dispatch}
+              answer={answer}
+            />
           )}
         </Main>
       </AppStyled>

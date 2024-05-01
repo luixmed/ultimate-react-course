@@ -19,6 +19,10 @@ export const OptionStyled = styled.li`
       transform: translateX(1.2rem);
     }
 
+    &.answered {
+      transform: translateX(2rem);
+    }
+
     &.correct {
       background-color: var(--color-theme);
       border: 2px solid var(--color-theme);
