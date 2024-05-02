@@ -2,8 +2,19 @@ import styled from "styled-components";
 
 export const OptionStyled = styled.li`
   button {
-    width: 100%;
+    /* Font */
     text-align: left;
+
+    /* Box */
+    width: 100%;
+
+    &:not([disabled]):hover {
+      transform: translateX(1.2rem);
+    }
+
+    &.answered {
+      transform: translateX(2rem);
+    }
 
     &.correct {
       background-color: var(--color-theme);
@@ -16,6 +27,7 @@ export const OptionStyled = styled.li`
       border: 2px solid var(--color-accent);
       color: var(--color-darkest);
     }
+<<<<<<< HEAD
 
     &.answer {
       transform: translateX(2rem);
@@ -24,5 +36,7 @@ export const OptionStyled = styled.li`
     &:not([disabled]):hover {
       transform: translateX(1.2rem);
     }
+=======
+>>>>>>> origin/main
   }
 `;

@@ -7,6 +7,7 @@ export const LoaderStyled = styled.div`
   align-items: center;
   gap: 1.6rem;
 
+<<<<<<< HEAD
   /* Font */
   color: var(--color-medium);
   font-size: 1.6rem;
@@ -20,6 +21,14 @@ export const LoaderStyled = styled.div`
 
   /* Style */
   background-color: #495057;
+=======
+  /* Box */
+  margin-top: 4rem;
+
+  /* Font */
+  color: var(--color-medium);
+  font-size: 1.4rem;
+>>>>>>> origin/main
 
   div {
     width: 50px;
@@ -31,6 +40,7 @@ export const LoaderStyled = styled.div`
     background-size: calc(100% / 3) 12px;
     background-repeat: no-repeat;
     animation: loader 1s infinite linear;
+<<<<<<< HEAD
 
     @keyframes loader {
       20% {
@@ -45,6 +55,22 @@ export const LoaderStyled = styled.div`
       80% {
         background-position: 0% 50%, 50% 50%, 100% 100%;
       }
+=======
+  }
+
+  @keyframes loader {
+    20% {
+      background-position: 0% 0%, 50% 50%, 100% 50%;
+    }
+    40% {
+      background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+    60% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+    80% {
+      background-position: 0% 50%, 50% 50%, 100% 100%;
+>>>>>>> origin/main
     }
   }
 `;

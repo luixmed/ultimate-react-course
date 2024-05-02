@@ -1,15 +1,16 @@
 import { OptionStyled } from "./OptionStyles";
 
-function Option({ option, idx, answer, dispatch, correctOption }) {
+function Option({ option, dispatch, index, answer, correctOption }) {
   const hasAnswered = answer !== null;
 
   return (
     <OptionStyled>
       <button
-        onClick={() => dispatch({ type: "newAnswer", payload: idx })}
-        className={`${idx === answer ? "answer" : ""} ${
-          hasAnswered ? (idx === correctOption ? "correct" : "wrong") : ""
-        }`}
+        onClick={() => dispatch({ type: "newAnswer", payload: index })}
+        className={`
+        ${index === answer ? "answered" : ""} 
+        ${hasAnswered ? (index === correctOption ? "correct" : "wrong") : ""}`}
+        disabled={hasAnswered}
       >
         {option}
       </button>

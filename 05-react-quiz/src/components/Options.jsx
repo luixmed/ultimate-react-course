@@ -1,17 +1,17 @@
 import Option from "./Option";
 import { OptionsStyled } from "./OptionsStyles";
 
-function Options({ question, answer, dispatch }) {
+function Options({ options, dispatch, answer, correctOption }) {
   return (
     <OptionsStyled>
-      {question.options.map((option, idx) => (
+      {options.map((option, index) => (
         <Option
           key={option}
           option={option}
-          idx={idx}
-          correctOption={question.correctOption}
-          answer={answer}
           dispatch={dispatch}
+          index={index}
+          answer={answer}
+          correctOption={correctOption}
         />
       ))}
     </OptionsStyled>
