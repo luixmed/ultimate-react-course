@@ -47,7 +47,7 @@ function App() {
           <Route path="product" element={<Product />} />
           <Route path="login" element={<Login />} />
           <Route path="app" element={<AppLayout />}>
-            <Route index element={<Navigate to="cities" />} />
+            <Route index replace element={<Navigate to="cities" />} />
             <Route
               path="cities"
               element={<CitiesList cities={cities} isLoading={isLoading} />}
