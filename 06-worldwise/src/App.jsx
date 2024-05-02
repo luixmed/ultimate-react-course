@@ -23,7 +23,6 @@ function App() {
         setIsLoading(true);
         const res = await fetch(`${BASE_API_URL}/cities`);
         const data = await res.json();
-        console.log(data);
         setCities(data);
       } catch (err) {
         console.log(err);
@@ -45,8 +44,14 @@ function App() {
           <Route path="product" element={<Product />} />
           <Route path="login" element={<Login />} />
           <Route path="app" element={<AppLayout />}>
-            <Route index element={<CitiesList />} />
-            <Route path="cities" element={<CitiesList />} />
+            <Route
+              index
+              element={<CitiesList cities={cities} isLoading={isLoading} />}
+            />
+            <Route
+              path="cities"
+              element={<CitiesList cities={cities} isLoading={isLoading} />}
+            />
             <Route path="countries" element={<p>COUNTRIES</p>} />
             <Route path="form" element={<p>FORM</p>} />
           </Route>
