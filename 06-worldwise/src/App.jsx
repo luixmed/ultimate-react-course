@@ -8,6 +8,7 @@ import AppLayout from "../pages/AppLayout";
 import { GlobalStyles } from "./GlobalStyles";
 import CitiesList from "../components/CitiesList";
 import { useEffect, useState } from "react";
+import CountriesList from "../components/CountriesList";
 
 const BASE_API_URL = "http://localhost:8000";
 
@@ -52,7 +53,10 @@ function App() {
               path="cities"
               element={<CitiesList cities={cities} isLoading={isLoading} />}
             />
-            <Route path="countries" element={<p>COUNTRIES</p>} />
+            <Route
+              path="countries"
+              element={<CountriesList cities={cities} isLoading={isLoading} />}
+            />
             <Route path="form" element={<p>FORM</p>} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
