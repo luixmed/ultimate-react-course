@@ -9,6 +9,7 @@ import { GlobalStyles } from "./GlobalStyles";
 import CitiesList from "../components/CitiesList";
 import { useEffect, useState } from "react";
 import CountriesList from "../components/CountriesList";
+import CityInfo from "../components/CityInfo";
 
 const BASE_API_URL = "http://localhost:8000";
 
@@ -53,6 +54,7 @@ function App() {
               path="cities"
               element={<CitiesList cities={cities} isLoading={isLoading} />}
             />
+            <Route path="cities/:cityId" element={<CityInfo />} />
             <Route
               path="countries"
               element={<CountriesList cities={cities} isLoading={isLoading} />}

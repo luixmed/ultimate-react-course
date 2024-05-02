@@ -1,14 +1,17 @@
+import { Link } from "react-router-dom";
 import { CityStyled } from "./CityStyles";
 
 function City({ city }) {
-  const { cityName, emoji, date } = city;
+  const { cityName, emoji, date, id } = city;
 
   return (
     <CityStyled>
-      <span>{emoji}</span>
-      <h3>{cityName}</h3>
-      <div>{date}</div>
-      <button>&times;</button>
+      <Link to={id}>
+        <span>{emoji}</span>
+        <h3>{cityName}</h3>
+        <time>{date}</time>
+        <button>&times;</button>
+      </Link>
     </CityStyled>
   );
 }

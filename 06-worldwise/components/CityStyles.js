@@ -1,18 +1,23 @@
 import styled from "styled-components";
 
 export const CityStyled = styled.li`
-  /* Font */
-  color: inherit;
-
-  /* Layout */
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-
-  /* Box */
-  padding: 1rem 2rem;
   border-radius: 7px;
-  border-left: 5px solid var(--color-brand--2);
+
+  a:link,
+  a:visited {
+    /* Font */
+    color: inherit;
+
+    /* Layout */
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    /* Box */
+    padding: 1rem 2rem;
+    border-radius: 7px;
+    border-left: 5px solid var(--color-brand--2);
+  }
 
   /* Styles */
   cursor: pointer;
