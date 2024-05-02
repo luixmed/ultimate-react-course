@@ -74,6 +74,13 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #fff;
   }
 
+  button {
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    color: inherit;
+  }
+
   .cta:link,
   .cta:visited {
     /* Box */
@@ -90,4 +97,6 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 600;
     text-transform: uppercase;
   }
+
+
 `;
