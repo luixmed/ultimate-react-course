@@ -10,6 +10,7 @@ import CitiesList from "../components/CitiesList";
 import { useEffect, useState } from "react";
 import CountriesList from "../components/CountriesList";
 import CityInfo from "../components/CityInfo";
+import Form from "../components/Form";
 
 const BASE_API_URL = "http://localhost:8000";
 
@@ -59,7 +60,7 @@ function App() {
               path="countries"
               element={<CountriesList cities={cities} isLoading={isLoading} />}
             />
-            <Route path="form" element={<p>FORM</p>} />
+            <Route path="form" element={<Form />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
