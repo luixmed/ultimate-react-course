@@ -36,13 +36,19 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
+    display: inline-block;
     text-decoration: none;
+    color: inherit;
   }
 
   img {
     max-width: 100%;
     display: inline-block;
     height: auto;
+  }
+
+  ul {
+    list-style: none;
   }
 
   label {

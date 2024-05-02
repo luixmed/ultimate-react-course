@@ -1,10 +1,11 @@
-import AppNavigation from "../components/AppNavigation";
+import Sidebar from "../components/Sidebar";
+import { AppLayoutStyled } from "./AppLayoutStyled";
 
 function AppLayout() {
   return (
-    <div>
-      <AppNavigation />
-    </div>
+    <AppLayoutStyled>
+      <Sidebar />
+    </AppLayoutStyled>
   );
 }
 

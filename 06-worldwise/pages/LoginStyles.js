@@ -25,7 +25,7 @@ export const LoginStyled = styled.main`
     gap: 2rem;
   }
 
-  div {
+  div:not(:last-child) {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
