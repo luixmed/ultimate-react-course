@@ -7,8 +7,34 @@ import PageNotFound from "../pages/PageNotFound";
 import AppLayout from "../pages/AppLayout";
 import { GlobalStyles } from "./GlobalStyles";
 import CitiesList from "../components/CitiesList";
+import { useEffect, useState } from "react";
+
+const BASE_API_URL = "http://localhost:8000";
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
+  const [cities, setCities] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(function () {
+    async function fetchCities() {
+      try {
+        setIsLoading(true);
+        const res = await fetch(`${BASE_API_URL}/cities`);
+        const data = await res.json();
+        console.log(data);
+        setCities(data);
+      } catch (err) {
+        console.log(err);
+        alert("There was an error fetching cities.");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchCities();
+  }, []);
+
   return (
     <>
       <GlobalStyles />
