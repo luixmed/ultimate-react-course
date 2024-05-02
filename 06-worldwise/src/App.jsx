@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import PageNotFound from "../pages/PageNotFound";
 import AppLayout from "../pages/AppLayout";
 import { GlobalStyles } from "./GlobalStyles";
+import CitiesList from "../components/CitiesList";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
           <Route path="product" element={<Product />} />
           <Route path="login" element={<Login />} />
           <Route path="app" element={<AppLayout />}>
-            <Route path="cities" element={<p>CITIES</p>} />
+            <Route index element={<CitiesList />} />
+            <Route path="cities" element={<CitiesList />} />
             <Route path="countries" element={<p>COUNTRIES</p>} />
             <Route path="form" element={<p>FORM</p>} />
           </Route>
