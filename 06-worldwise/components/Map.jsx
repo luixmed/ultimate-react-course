@@ -1,25 +1,30 @@
 import { useSearchParams } from "react-router-dom";
 import { MapStyled } from "./MapStyles";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { useState } from "react";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 
 function Map() {
-  // eslint-disable-next-line no-unused-vars
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
   const { cities } = useCities();
 
-  // eslint-disable-next-line no-unused-vars
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
-  // const lat = searchParams.get("lat");
-  // const lng = searchParams.get("lng");
+  const mapLat = searchParams.get("lat");
+  const mapLng = searchParams.get("lng");
+
+  useEffect(
+    function () {
+      if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
+    },
+    [mapLat, mapLng]
+  );
 
   return (
     <MapStyled>
       <MapContainer
         center={mapPosition}
-        zoom={13}
+        zoom={7}
         scrollWheelZoom={true}
         className="map"
       >
@@ -27,6 +32,8 @@ function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+        {/******** MARKERS ********/}
         {cities.map((city) => (
           <Marker
             position={[city.position.lat, city.position.lng]}
@@ -38,9 +45,18 @@ function Map() {
             </Popup>
           </Marker>
         ))}
+
+        {/******** MAP VIEW FUNCTIONALITY ********/}
+        <ChangeMapView position={mapPosition} />
       </MapContainer>
     </MapStyled>
   );
+}
+
+function ChangeMapView({ position }) {
+  const map = useMap();
+  map.setView(position);
+  return null;
 }
 
 export default Map;
