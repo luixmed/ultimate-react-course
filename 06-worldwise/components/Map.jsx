@@ -1,6 +1,13 @@
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { MapStyled } from "./MapStyles";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+  useMapEvent,
+} from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 
@@ -48,6 +55,8 @@ function Map() {
 
         {/******** MAP VIEW FUNCTIONALITY ********/}
         <ChangeMapView position={mapPosition} />
+        {/******** SELECT LOCATION ********/}
+        <SelectLocationByClickingTheMap />
       </MapContainer>
     </MapStyled>
   );
@@ -57,6 +66,14 @@ function ChangeMapView({ position }) {
   const map = useMap();
   map.setView(position);
   return null;
+}
+
+function SelectLocationByClickingTheMap() {
+  const navigate = useNavigate();
+
+  useMapEvent({
+    click: () => navigate("form"),
+  });
 }
 
 export default Map;
