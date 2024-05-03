@@ -7,6 +7,7 @@ import Spinner from "./Spinner";
 import Message from "./Message";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useCities } from "../contexts/CitiesContext";
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
@@ -21,6 +22,7 @@ function Form() {
   const [date, setDate] = useState(new Date());
 
   const [lat, lng] = useUrlPosition();
+  const { createCity, isLoading: isCreatingCity } = useCities();
 
   useEffect(
     function () {
@@ -54,6 +56,24 @@ function Form() {
     [lat, lng]
   );
 
+  // EVENTS
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!cityName || !date) return;
+
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: { lat, lng },
+    };
+
+    await createCity(newCity);
+  }
+
   // CONDITIONAL EARLY RETURN
   if (!lat && !lng)
     return <Message message="Start by clicking somewhere in the map" />;
@@ -61,7 +81,10 @@ function Form() {
   if (geocodingError) return <Message message={geocodingError} />;
 
   return (
-    <FormStyled>
+    <FormStyled
+      onSubmit={handleSubmit}
+      className={`${isCreatingCity ? "loading" : ""}`}
+    >
       {/* CITY NAME */}
       <div>
         <label htmlFor="cityName">City Name</label>

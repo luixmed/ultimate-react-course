@@ -14,6 +14,10 @@ export const FormStyled = styled.form`
   /* Style */
   background-color: var(--color-dark--2);
 
+  &.loading {
+    opacity: 0.3;
+  }
+
   div:not(:last-child) {
     display: flex;
     flex-direction: column;
@@ -34,5 +38,13 @@ export const FormStyled = styled.form`
   div:last-child {
     display: flex;
     justify-content: space-between;
+  }
+
+  &.loading button {
+    pointer-events: none;
+
+    color: var(--color-dark--0);
+    border: 1px solid var(--color-light--1);
+    background-color: var(--color-light--1);
   }
 `;
