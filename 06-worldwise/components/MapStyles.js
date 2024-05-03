@@ -10,4 +10,8 @@ export const MapStyled = styled.div`
 
   /* Style */
   background-color: var(--color-dark--2);
+
+  .map {
+    height: 100%;
+  }
 `;
