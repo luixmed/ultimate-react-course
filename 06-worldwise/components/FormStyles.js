@@ -20,15 +20,15 @@ export const FormStyled = styled.form`
     gap: 0.5rem;
 
     position: relative;
+  }
 
-    span {
-      font-size: 2.8rem;
+  span {
+    font-size: 2.8rem;
 
-      /* Layout */
-      position: absolute;
-      top: 2.7rem;
-      right: 1rem;
-    }
+    /* Layout */
+    position: absolute;
+    top: 2.7rem;
+    right: 1rem;
   }
 
   div:last-child {
