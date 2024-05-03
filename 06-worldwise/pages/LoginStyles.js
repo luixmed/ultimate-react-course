@@ -30,4 +30,9 @@ export const LoginStyled = styled.main`
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  div:last-child {
+    display: flex;
+    justify-content: space-between;
+  }
 `;

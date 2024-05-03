@@ -3,6 +3,7 @@ import { CityInfoStyled } from "./CityInfoStyles";
 import { useEffect } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import Spinner from "./Spinner";
+import BackButton from "./BackButton.jsx";
 
 function CityInfo() {
   const { cityId } = useParams();
@@ -51,6 +52,10 @@ function CityInfo() {
         >
           Check out {cityName} on Wikipedia &rarr;
         </a>
+      </div>
+
+      <div>
+        <BackButton />
       </div>
     </CityInfoStyled>
   );
