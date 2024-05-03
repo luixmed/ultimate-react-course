@@ -20,7 +20,7 @@ function Map() {
     // eslint-disable-next-line no-unused-vars
     position: geoLocationPosition,
     isLoading: isLoadingGeoLocation,
-    getPostion: getGeoLocationPosition,
+    getPosition: getGeoLocationPosition,
   } = useGeoLocation();
 
   const [searchParams] = useSearchParams();
@@ -35,10 +35,18 @@ function Map() {
     [mapLat, mapLng]
   );
 
+  useEffect(
+    function () {
+      if (geoLocationPosition)
+        setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
+    },
+    [geoLocationPosition]
+  );
+
   return (
     <MapStyled>
       <Button type="position" onClick={getGeoLocationPosition}>
-        {isLoadingGeoLocation ? "Loading position..." : "Use your position"}
+        {isLoadingGeoLocation ? "Loading..." : "Use your position"}
       </Button>
       <MapContainer
         center={mapPosition}
