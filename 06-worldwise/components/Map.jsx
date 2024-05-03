@@ -72,7 +72,7 @@ function SelectLocationByClickingTheMap() {
   const navigate = useNavigate();
 
   useMapEvent({
-    click: () => navigate("form"),
+    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   });
 }
 
