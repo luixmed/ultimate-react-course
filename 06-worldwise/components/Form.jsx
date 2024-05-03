@@ -10,7 +10,6 @@ const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
   const [cityName, setCityName] = useState("");
-  // eslint-disable-next-line no-unused-vars
   const [emoji, setEmoji] = useState("");
   const [notes, setNotes] = useState("");
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
@@ -22,6 +21,8 @@ function Form() {
 
   useEffect(
     function () {
+      if (!lat && !lng) return;
+
       async function fetchCityData() {
         try {
           setIsLoadingGeocoding(true);
@@ -50,8 +51,10 @@ function Form() {
     [lat, lng]
   );
 
+  // CONDITIONAL EARLY RETURN
+  if (!lat && !lng)
+    return <Message message="Start by clicking somewhere in the map" />;
   if (isLoadingGeocoding) return <Spinner />;
-
   if (geocodingError) return <Message message={geocodingError} />;
 
   return (
