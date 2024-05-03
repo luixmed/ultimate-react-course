@@ -1,9 +1,12 @@
+import { useCities } from "../contexts/CitiesContext";
 import { CountriesListStyled } from "./CountriesListStyles";
 import Country from "./Country";
 import Message from "./Message";
 import Spinner from "./Spinner";
 
-function CountriesList({ cities, isLoading }) {
+function CountriesList() {
+  const { cities, isLoading } = useCities();
+
   if (isLoading) return <Spinner />;
 
   if (!cities.length)
