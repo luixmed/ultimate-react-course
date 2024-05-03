@@ -47,42 +47,6 @@
         "lng": "-2.13128394200588"
       },
       "id": "98443198"
-    },
-    {
-      "id": "b6fc",
-      "cityName": "Toulouse",
-      "country": "France",
-      "emoji": "FR",
-      "date": "2024-05-03T20:40:33.633Z",
-      "notes": "Beautiful",
-      "position": {
-        "lat": "43.5843700152048",
-        "lng": "1.4941406250000002"
-      }
-    },
-    {
-      "id": "8f7b",
-      "cityName": "Lima",
-      "country": "Peru",
-      "emoji": "PE",
-      "date": "2024-05-03T20:48:41.230Z",
-      "notes": "Ugly",
-      "position": {
-        "lat": "-12.087667262738698",
-        "lng": "-77.01416015625001"
-      }
-    },
-    {
-      "id": "4bd2",
-      "cityName": "Cusco",
-      "country": "Peru",
-      "emoji": "PE",
-      "date": "2024-05-03T20:55:16.687Z",
-      "notes": "Amazing",
-      "position": {
-        "lat": "-13.51249662703826",
-        "lng": "-71.98791503906251"
-      }
     }
   ]
 }

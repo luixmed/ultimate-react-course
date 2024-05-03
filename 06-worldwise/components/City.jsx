@@ -4,7 +4,12 @@ import { useCities } from "../contexts/CitiesContext";
 
 function City({ city }) {
   const { cityName, emoji, date, id, position } = city;
-  const { currentCity } = useCities();
+  const { currentCity, deleteCity } = useCities();
+
+  function handleDeleteCity(e) {
+    e.preventDefault();
+    deleteCity(id);
+  }
 
   return (
     <CityStyled active={id === currentCity.id}>
@@ -12,7 +17,7 @@ function City({ city }) {
         <span>{emoji}</span>
         <h3>{cityName}</h3>
         <time>{date}</time>
-        <button>&times;</button>
+        <button onClick={handleDeleteCity}>&times;</button>
       </Link>
     </CityStyled>
   );
