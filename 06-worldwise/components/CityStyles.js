@@ -18,6 +18,8 @@ export const CityStyled = styled.li`
     padding: 1rem 2rem;
     border-radius: 7px;
     border-left: 5px solid var(--color-brand--2);
+    border: ${(props) =>
+      props.active ? "2px solid var(--color-brand--2)" : ""};
   }
 
   /* Styles */
