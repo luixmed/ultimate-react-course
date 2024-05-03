@@ -8,6 +8,7 @@ import Message from "./Message";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useCities } from "../contexts/CitiesContext";
+import { useNavigate } from "react-router-dom";
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
@@ -23,6 +24,7 @@ function Form() {
 
   const [lat, lng] = useUrlPosition();
   const { createCity, isLoading: isCreatingCity } = useCities();
+  const navigate = useNavigate();
 
   useEffect(
     function () {
@@ -72,6 +74,7 @@ function Form() {
     };
 
     await createCity(newCity);
+    navigate("/app/cities");
   }
 
   // CONDITIONAL EARLY RETURN
