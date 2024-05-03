@@ -10,6 +10,7 @@ const CitiesContext = createContext();
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentCity, setCurrentCity] = useState({});
 
   useEffect(function () {
     async function fetchCities() {
@@ -19,7 +20,6 @@ function CitiesProvider({ children }) {
         const data = await res.json();
         setCities(data);
       } catch (err) {
-        console.log(err);
         alert("There was an error fetching cities.");
       } finally {
         setIsLoading(false);
@@ -28,11 +28,26 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
+  async function getCity(id) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASE_API_URL}/cities/${id}`);
+      const data = await res.json();
+      setCurrentCity(data);
+    } catch (err) {
+      alert("There was an error fetching city.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <CitiesContext.Provider
       value={{
         cities,
         isLoading,
+        currentCity,
+        getCity,
       }}
     >
       {children}
@@ -47,4 +62,5 @@ function useCities() {
   return value;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { CitiesProvider, useCities };
