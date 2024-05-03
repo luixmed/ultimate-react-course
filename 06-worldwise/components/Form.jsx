@@ -1,22 +1,42 @@
-import { useNavigate } from "react-router-dom";
-import Button from "./Button";
+import { useState } from "react";
 import { FormStyled } from "./FormStyles";
+import Button from "./Button";
+import BackButton from "./BackButton";
 
 function Form() {
-  const navigate = useNavigate();
+  const [cityName, setCityName] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [emoji, setEmoji] = useState("");
+  const [notes, setNotes] = useState("");
 
   return (
     <FormStyled>
-      <h1>FORM</h1>
-      <Button
-        type="back"
-        onClick={(e) => {
-          e.preventDefault();
-          navigate(-1);
-        }}
-      >
-        &larr; Back
-      </Button>
+      {/* CITY NAME */}
+      <div>
+        <label htmlFor="cityName">City Name</label>
+        <input
+          id="cityName"
+          value={cityName}
+          onChange={(e) => setCityName(e.target.value)}
+        />
+        <span>{emoji}</span>
+      </div>
+
+      {/* NOTES */}
+      <div>
+        <label htmlFor="notes">Notes about your trip to {cityName}</label>
+        <textarea
+          id="notes"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+        ></textarea>
+      </div>
+
+      {/* BUTTONS */}
+      <div>
+        <Button type="primary">Add</Button>
+        <BackButton />
+      </div>
     </FormStyled>
   );
 }
