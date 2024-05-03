@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const CityStyled = styled.li`
   border-radius: 7px;
 
+  a,
   a:link,
   a:visited {
     /* Font */
