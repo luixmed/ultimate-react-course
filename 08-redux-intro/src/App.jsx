@@ -3,6 +3,8 @@ import CreateCustomer from "../features/customers/CreateCustomer";
 import Customer from "../features/customers/Customer";
 import { AppStyled } from "./AppStyles";
 import { GlobalStyles } from "./GlobalStyles";
+import AccountOperations from "../features/accounts/AccountOperations";
+import BalanceDisplay from "../features/accounts/BalanceDisplay";
 
 function App() {
   const fullName = useSelector((state) => state.customer.fullName);
@@ -17,6 +19,8 @@ function App() {
         ) : (
           <>
             <Customer />
+            <AccountOperations />
+            <BalanceDisplay />
           </>
         )}
       </AppStyled>
