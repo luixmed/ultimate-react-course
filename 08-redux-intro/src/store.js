@@ -4,8 +4,10 @@ import accountReducer from "../features/accounts/accountSlice";
 import customerReducer from "../features/customers/customerSlice";
 
 const store = configureStore({
-  account: accountReducer,
-  customer: customerReducer,
+  reducer: {
+    account: accountReducer,
+    customer: customerReducer,
+  },
 });
 
 export default store;
