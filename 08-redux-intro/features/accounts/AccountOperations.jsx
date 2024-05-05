@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AccountOperationsStyled } from "./AccountOperationsStyles";
 import { useDispatch, useSelector } from "react-redux";
+// eslint-disable-next-line no-unused-vars
 import { deposit, payLoan, requestLoan, withdraw } from "./accountSlice";
 
 function AccountOperations() {
@@ -22,7 +23,8 @@ function AccountOperations() {
 
   function handleDeposit() {
     if (!depositAmount) return;
-    dispatch(deposit(depositAmount, currency));
+    // dispatch(deposit(depositAmount, currency));
+    dispatch(deposit(depositAmount));
     setDepositAmount("");
     setCurrency("USD");
   }
