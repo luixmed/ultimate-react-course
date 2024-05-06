@@ -1,12 +1,18 @@
 import { useLoaderData } from "react-router-dom";
 import { getMenu } from "../../services/apiRestaurant";
 import { MenuStyled } from "./MenuStyled";
+import Pizza from "./Pizza";
 
 function Menu() {
   const menu = useLoaderData();
-  console.log(menu);
 
-  return <MenuStyled>MENU</MenuStyled>;
+  return (
+    <MenuStyled>
+      {menu.map((pizza) => (
+        <Pizza key={pizza.id} pizza={pizza} />
+      ))}
+    </MenuStyled>
+  );
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
