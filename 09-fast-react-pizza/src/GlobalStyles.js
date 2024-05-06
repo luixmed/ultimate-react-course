@@ -14,5 +14,13 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
+
+    /* ERASE */
+    color: white;
+    background-color: #333;
+  }
+
+  a {
+    text-decoration: none;
   }
 `;
