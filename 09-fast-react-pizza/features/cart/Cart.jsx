@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Cart() {
   return (
     <CartStyled>
-      <Link to="/">&larr; Back to menu</Link>
+      <Link to="/menu">&larr; Back to menu</Link>
       <h2>Your cart, USER_NAME</h2>
     </CartStyled>
   );
