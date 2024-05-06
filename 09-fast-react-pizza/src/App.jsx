@@ -1,11 +1,15 @@
-import { AppStyled } from "./AppStyles";
+// import { AppStyled } from "./AppStyles";
 import { GlobalStyles } from "./GlobalStyles";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "../ui/Home";
+
+const router = createBrowserRouter([{ path: "/", element: <Home /> }]);
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <AppStyled>Hello VITE!</AppStyled>
+      <RouterProvider router={router} />
     </>
   );
 }
