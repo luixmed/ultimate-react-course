@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
 
     /* ERASE */
     color: white;
-    background-color: #333;
+    background-color: #555;
   }
 
   a {
