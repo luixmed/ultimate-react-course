@@ -1,3 +1,4 @@
+import Button from "./Button";
 import { HomeStyled } from "./HomeStyles";
 
 function Home() {
@@ -7,7 +8,7 @@ function Home() {
         The best pizza <br />
         <span>Straight out of the oven, straight to you.</span>
       </h1>
-      <button>Continue ordering USER_NAME</button>
+      <Button type="primary">Continue ordering USER_NAME</Button>
     </HomeStyled>
   );
 }
