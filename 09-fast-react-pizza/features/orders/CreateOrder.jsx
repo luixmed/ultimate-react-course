@@ -1,5 +1,6 @@
-import { Form } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import { CreateOrderStyled } from "./CreateOrderStyled";
+import { createOrder } from "../../services/apiRestaurant";
 
 const fakeCart = [
   {
@@ -65,6 +66,22 @@ function CreateOrder() {
       </Form>
     </CreateOrderStyled>
   );
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export async function action({ request }) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+
+  const order = {
+    ...data,
+    cart: JSON.parse(data.cart),
+    priority: data.priority === "on",
+  };
+
+  const newOrder = await createOrder(order);
+
+  return redirect(`/order/${newOrder.id}`);
 }
 
 export default CreateOrder;
