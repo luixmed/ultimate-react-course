@@ -1,4 +1,4 @@
-import { Form, redirect } from "react-router-dom";
+import { Form, redirect, useActionData } from "react-router-dom";
 import { CreateOrderStyled } from "./CreateOrderStyled";
 import { createOrder } from "../../services/apiRestaurant";
 
@@ -33,6 +33,7 @@ const fakeCart = [
 
 function CreateOrder() {
   const cart = fakeCart;
+  const FormErrors = useActionData();
 
   return (
     <CreateOrderStyled>
@@ -49,6 +50,7 @@ function CreateOrder() {
         <div>
           <label>Phone number</label>
           <input type="tel" name="phone" required />
+          {FormErrors?.phoneError && <p>{FormErrors.phoneError}</p>}
         </div>
 
         {/* ADDRESS */}
