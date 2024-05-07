@@ -6,8 +6,6 @@ export const SearchOrderStyled = styled.form`
 
     &:focus {
       width: 28.8rem;
-      outline: 1px solid #e677004c;
-      outline-offset: 2px;
     }
   }
 `;

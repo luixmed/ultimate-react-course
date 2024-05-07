@@ -47,7 +47,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     &:focus {
-      outline: none;
+      outline: 2px solid #F3C211;
+      outline-offset: 2px;
     }
   }
 `;
