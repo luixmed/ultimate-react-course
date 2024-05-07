@@ -8,7 +8,7 @@ function CartOverview() {
         <span>4 pizzas</span>
         <span>$34.99</span>
       </p>
-      <Link to="/cart">Open cart</Link>
+      <Link to="/cart">Open cart &rarr;</Link>
     </CartOverviewStyled>
   );
 }
