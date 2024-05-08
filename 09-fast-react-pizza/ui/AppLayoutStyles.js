@@ -12,5 +12,7 @@ export const AppLayoutStyled = styled.div`
     width: 100%;
     max-width: 76.8rem;
     margin-inline: auto;
+
+    overflow-y: scroll;
   }
 `;
