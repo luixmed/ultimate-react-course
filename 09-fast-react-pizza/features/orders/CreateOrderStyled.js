@@ -59,4 +59,23 @@ export const FormStyled = styled.form`
       }
     }
   }
+
+  & > div:nth-child(4) {
+    margin-bottom: 4.8rem;
+    gap: 2rem;
+
+    input {
+      /* Box */
+      width: 2.4rem;
+      height: 2.4rem;
+
+      /* Style */
+      accent-color: #facc15;
+    }
+
+    label {
+      flex-grow: 1;
+      font-weight: 500;
+    }
+  }
 `;
