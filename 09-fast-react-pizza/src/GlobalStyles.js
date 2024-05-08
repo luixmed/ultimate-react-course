@@ -26,6 +26,10 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  ul {
+    list-style: none;
+  }
+
   input {
     /* Font */
     font-size: 1.4rem;
