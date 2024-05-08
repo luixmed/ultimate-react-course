@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LinkButtonStyled } from "./LinkButtonStyles";
 
 function LinkButton({ children, to }) {
@@ -11,7 +11,11 @@ function LinkButton({ children, to }) {
       </LinkButtonStyled>
     );
 
-  return <LinkButtonStyled to={to}>{children}</LinkButtonStyled>;
+  return (
+    <LinkButtonStyled to={to} as={Link}>
+      {children}
+    </LinkButtonStyled>
+  );
 }
 
 export default LinkButton;
