@@ -2,9 +2,10 @@ import { useSelector } from "react-redux";
 import Button from "../../ui/Button";
 import LinkButton from "../../ui/LinkButton";
 import { CartStyled } from "./CartStyles";
+import { getUsername } from "../users/userSlice";
 
 function Cart() {
-  const username = useSelector((state) => state.user.username);
+  const username = useSelector(getUsername);
 
   return (
     <CartStyled>
