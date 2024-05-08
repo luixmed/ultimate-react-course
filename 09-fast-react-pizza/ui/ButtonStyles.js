@@ -34,12 +34,40 @@ const base = css`
   }
 `;
 
+const secondary = css`
+  /* Font */
+  color: rgb(168 162 158);
+
+  /* Box */
+  padding: 1.4rem 2.4rem;
+  border: 2px solid rgb(214 211 209);
+
+  /* Style */
+  background-color: transparent;
+
+  &:hover {
+    color: rgb(41 37 36);
+    background-color: rgb(214 211 209);
+  }
+
+  &:focus {
+    color: rgb(41 37 36);
+    background-color: rgb(214 211 209);
+    outline: 2px solid rgb(214 211 209);
+    outline-offset: 2px;
+  }
+`;
+
 const styles = {
   primary: css`
     ${base};
 
     /* Box */
     padding: 1.6rem 2.4rem;
+  `,
+  secondary: css`
+    ${base};
+    ${secondary};
   `,
 };
 
