@@ -1,3 +1,4 @@
+import Button from "../../ui/Button";
 import { PizzaStyled } from "./PizzaStyles";
 
 function Pizza({ pizza }) {
@@ -10,8 +11,8 @@ function Pizza({ pizza }) {
         <p>{name}</p>
         <p>{ingredients.join(", ")}</p>
         <div>
-          {!soldOut ? <p>{unitPrice}</p> : <p>Sold out</p>}
-          <button>Add to cart</button>
+          {!soldOut ? <p>{unitPrice}</p> : <p className="sold-out">Sold out</p>}
+          <Button type="small">Add to cart</Button>
         </div>
       </div>
     </PizzaStyled>
