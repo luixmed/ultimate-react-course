@@ -1,4 +1,5 @@
 import { CartItemStyled } from "./CartItemStyles";
+import DeleteItem from "./DeleteItem";
 
 function CartItem({ item }) {
   // eslint-disable-next-line no-unused-vars
@@ -11,6 +12,7 @@ function CartItem({ item }) {
       </p>
       <div>
         <p>{totalPrice}</p>
+        <DeleteItem pizzaId={pizzaId} />
       </div>
     </CartItemStyled>
   );
