@@ -2,6 +2,7 @@ import { Form, redirect, useActionData } from "react-router-dom";
 import { CreateOrderStyled, FormStyled } from "./CreateOrderStyled";
 import { createOrder } from "../../services/apiRestaurant";
 import Button from "../../ui/Button";
+import { useSelector } from "react-redux";
 
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -36,6 +37,8 @@ function CreateOrder() {
   const cart = fakeCart;
   const FormErrors = useActionData();
 
+  const username = useSelector((state) => state.user.username);
+
   return (
     <CreateOrderStyled>
       <h2>Ready to order? Let&apos;s go!</h2>
@@ -44,7 +47,7 @@ function CreateOrder() {
         {/* USER'S NAME */}
         <div>
           <label>First name</label>
-          <input type="text" name="customer" required />
+          <input type="text" name="customer" required defaultValue={username} />
         </div>
 
         {/* PHONE */}
