@@ -1,6 +1,7 @@
 import { Form, redirect, useActionData } from "react-router-dom";
-import { CreateOrderStyled } from "./CreateOrderStyled";
+import { CreateOrderStyled, FormStyled } from "./CreateOrderStyled";
 import { createOrder } from "../../services/apiRestaurant";
+import Button from "../../ui/Button";
 
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -39,7 +40,7 @@ function CreateOrder() {
     <CreateOrderStyled>
       <h2>Ready to order? Let&apos;s go!</h2>
 
-      <Form method="POST">
+      <FormStyled method="POST" as={Form}>
         {/* USER'S NAME */}
         <div>
           <label>First name</label>
@@ -49,14 +50,21 @@ function CreateOrder() {
         {/* PHONE */}
         <div>
           <label>Phone number</label>
-          <input type="tel" name="phone" required />
-          {FormErrors?.phoneError && <p>{FormErrors.phoneError}</p>}
+          <div>
+            <input type="tel" name="phone" required />
+            {FormErrors?.phoneError && <p>{FormErrors.phoneError}</p>}
+          </div>
         </div>
 
         {/* ADDRESS */}
         <div>
           <label>Address</label>
-          <input type="text" name="address" required />
+          <div>
+            <input type="text" name="address" required />
+          </div>
+          <span>
+            <Button type="small">Get position</Button>
+          </span>
         </div>
 
         {/* ORDER PRIORITY */}
@@ -70,7 +78,7 @@ function CreateOrder() {
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
           <button>Order now</button>
         </div>
-      </Form>
+      </FormStyled>
     </CreateOrderStyled>
   );
 }
