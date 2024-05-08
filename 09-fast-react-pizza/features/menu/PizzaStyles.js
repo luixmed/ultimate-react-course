@@ -36,7 +36,7 @@ export const PizzaStyled = styled.li`
       text-transform: capitalize;
     }
 
-    div {
+    & > div {
       /* Font */
       font-size: 1.4rem;
 
@@ -52,6 +52,12 @@ export const PizzaStyled = styled.li`
         color: rgb(120 113 108);
         font-weight: 500;
         text-transform: uppercase;
+      }
+
+      & > div {
+        display: flex;
+        align-items: center;
+        gap: 3.2rem;
       }
     }
   }
