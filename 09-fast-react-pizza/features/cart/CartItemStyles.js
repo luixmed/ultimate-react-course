@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const CartItemStyled = styled.li`
   /* Box */
   padding-block: 1.2rem;
+  border-bottom: 1px solid rgb(231 229 228);
 
   /* Layout */
   display: flex;
