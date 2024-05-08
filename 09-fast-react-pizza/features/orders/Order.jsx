@@ -20,7 +20,7 @@ function Order() {
   return (
     <OrderStyled>
       <div>
-        <h2>Status</h2>
+        <h2>status</h2>
         <div>
           {priority && <span>Priority</span>}
           <span>{status} order</span>
