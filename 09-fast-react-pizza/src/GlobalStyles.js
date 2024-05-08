@@ -32,14 +32,11 @@ export const GlobalStyles = createGlobalStyle`
     font-family: inherit;
 
     /* Box */
-    border: none;
-    padding: 0.8rem 1.6rem;
+    border: 1px solid rgb(231 229 228);
+    padding: 1.2rem 2.4rem;
     border-radius: 10rem;
 
-
-    /* Style */
-    background-color: #fef9c3;
-
+    /* Animation */
     transition: all 0.3s;
 
     &::placeholder {
@@ -47,8 +44,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     &:focus {
-      outline: 2px solid #F3C211;
-      outline-offset: 2px;
+      outline: 3px solid #F3C212B2;
     }
   }
 `;
