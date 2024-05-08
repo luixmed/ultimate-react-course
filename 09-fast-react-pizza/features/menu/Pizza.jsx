@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import { PizzaStyled } from "./PizzaStyles";
 import { addItem, getItemQuantity } from "../cart/cartSlice";
 import DeleteItem from "../cart/DeleteItem";
+import UpdateItemQuantity from "../cart/UpdateItemQuantity";
 
 function Pizza({ pizza }) {
   const { id, name, unitPrice, imageUrl, ingredients, soldOut } = pizza;
@@ -35,7 +36,12 @@ function Pizza({ pizza }) {
           {!soldOut ? <p>{unitPrice}</p> : <p className="sold-out">Sold out</p>}
 
           {/* DELETE ITEM BUTTON */}
-          {isPizzaInCart && <DeleteItem pizzaId={id} />}
+          {isPizzaInCart && (
+            <div>
+              <UpdateItemQuantity pizzaId={id} pizzaQuantity={pizzaQuantity} />
+              <DeleteItem pizzaId={id} />
+            </div>
+          )}
 
           {/* ADD TO CART BUTTON */}
           {!soldOut && !isPizzaInCart && (
