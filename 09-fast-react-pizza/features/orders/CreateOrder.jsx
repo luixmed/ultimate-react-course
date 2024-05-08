@@ -76,7 +76,7 @@ function CreateOrder() {
         {/* CART and SUBMIT BUTTON */}
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <button>Order now</button>
+          <Button type="primary">Order now</Button>
         </div>
       </FormStyled>
     </CreateOrderStyled>
