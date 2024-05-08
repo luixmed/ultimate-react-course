@@ -4,9 +4,9 @@ import { ButtonStyled } from "./ButtonStyles";
 function Button({ children, type, to, onClick, disabled }) {
   if (to)
     return (
-      <Link to={to} type={type}>
+      <ButtonStyled to={to} type={type} as={Link}>
         {children}
-      </Link>
+      </ButtonStyled>
     );
 
   if (onClick)
