@@ -32,7 +32,8 @@ export const PizzaStyled = styled.li`
       color: rgb(120 113 108);
       font-size: 1.4rem;
       font-style: italic;
-      text-transform: uppercase;
+      line-height: 2rem;
+      text-transform: capitalize;
     }
 
     div {
