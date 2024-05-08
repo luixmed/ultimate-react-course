@@ -9,6 +9,7 @@ export const AppLayoutStyled = styled.div`
   grid-template-rows: auto 1fr auto;
 
   main {
+    width: 100%;
     max-width: 76.8rem;
     margin-inline: auto;
   }
