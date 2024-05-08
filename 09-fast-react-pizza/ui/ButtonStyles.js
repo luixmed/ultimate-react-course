@@ -15,6 +15,7 @@ const base = css`
 
   /* Style */
   background-color: #facc15;
+  cursor: pointer;
 
   /* Animation */
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -68,6 +69,12 @@ const styles = {
   secondary: css`
     ${base};
     ${secondary};
+  `,
+  small: css`
+    ${base};
+
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
   `,
 };
 
