@@ -10,6 +10,10 @@ export const CartStyled = styled.div`
     margin-top: 2.8rem;
   }
 
+  ul {
+    margin-top: 1.2rem;
+  }
+
   div {
     margin-top: 2.4rem;
 
