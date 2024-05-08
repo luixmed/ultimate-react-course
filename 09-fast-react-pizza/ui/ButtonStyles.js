@@ -76,6 +76,13 @@ const styles = {
     font-size: 1.2rem;
     padding: 1rem 2rem;
   `,
+  round: css`
+    ${base};
+
+    /* Box */
+    width: 3.6rem;
+    height: 3.6rem;
+  `,
 };
 
 export const ButtonStyled = styled.button`
