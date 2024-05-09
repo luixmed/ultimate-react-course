@@ -101,7 +101,7 @@ function CreateOrder() {
             name="priority"
             id="priority"
             value={withPriority}
-            onChange={(e) => setWithPriority(e.target.value)}
+            onChange={() => setWithPriority((p) => !p)}
           />
           <label htmlFor="priority">Want to give your order priority?</label>
         </div>
