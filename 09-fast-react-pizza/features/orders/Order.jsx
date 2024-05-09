@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { getOrder } from "../../services/apiRestaurant";
 import { OrderStyled } from "./OrderStyles";
+import { calcMinutesLeft, formatDate } from "../../utilities/helpers";
+import OrderItem from "./OrderItem";
 
 // Test ID: IIDSAT
 
@@ -14,8 +16,10 @@ function Order() {
     priorityPrice,
     orderPrice,
     estimatedDelivery,
-    // cart,
+    cart,
   } = order;
+
+  const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (
     <OrderStyled>
@@ -28,9 +32,19 @@ function Order() {
       </div>
 
       <div>
-        <p>Order should have arrived</p>
-        <p>(Estimated delivery: {estimatedDelivery})</p>
+        <p>
+          {deliveryIn >= 0
+            ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left 😀`
+            : "Order should have arrived"}
+        </p>
+        <p>(Estimated delivery: {formatDate(estimatedDelivery)})</p>
       </div>
+
+      <ul>
+        {cart.map((item) => (
+          <OrderItem key={item.pizzaId} item={item} />
+        ))}
+      </ul>
 
       <div>
         <p>Price pizza: {orderPrice}</p>
