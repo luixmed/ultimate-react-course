@@ -14,7 +14,7 @@ export const CartStyled = styled.div`
     margin-top: 1.2rem;
   }
 
-  div {
+  & > div {
     margin-top: 2.4rem;
 
     & > a {
