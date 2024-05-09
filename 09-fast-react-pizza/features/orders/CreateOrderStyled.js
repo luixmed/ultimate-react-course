@@ -30,22 +30,6 @@ export const FormStyled = styled.form`
       & > input {
         width: 100%;
       }
-
-      p {
-        /* Font */
-        color: rgb(185 28 28);
-        font-size: 1.2rem;
-        text-align: center;
-        line-height: 1.6rem;
-
-        /* Box */
-        padding: 8px;
-        border-radius: 6px;
-        margin-top: 0.8rem;
-
-        /* Style */
-        background-color: rgb(254 226 226);
-      }
     }
 
     &:has(span) {
@@ -58,6 +42,22 @@ export const FormStyled = styled.form`
         z-index: 50;
       }
     }
+  }
+
+  p.error {
+    /* Font */
+    color: rgb(185 28 28);
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.6rem;
+
+    /* Box */
+    padding: 8px;
+    border-radius: 6px;
+    margin-top: 0.8rem;
+
+    /* Style */
+    background-color: rgb(254 226 226);
   }
 
   & > div:nth-child(4) {
