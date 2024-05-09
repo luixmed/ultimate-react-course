@@ -1,7 +1,7 @@
 import { formatCurrency } from "../../utilities/helpers";
 import { OrderItemStyled } from "./OrderItemStyles";
 
-function OrderItem({ item }) {
+function OrderItem({ item, ingredients, isLoadingIngredients }) {
   const { quantity, name, totalPrice } = item;
 
   return (
@@ -12,6 +12,7 @@ function OrderItem({ item }) {
         </p>
         <p>{formatCurrency(totalPrice)}</p>
       </div>
+      <p>{isLoadingIngredients ? "Loading..." : ingredients.join(", ")}</p>
     </OrderItemStyled>
   );
 }
