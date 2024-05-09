@@ -3,8 +3,10 @@ import { CreateOrderStyled, FormStyled } from "./CreateOrderStyled";
 import { createOrder } from "../../services/apiRestaurant";
 import Button from "../../ui/Button";
 import { useSelector } from "react-redux";
-import { getCart } from "../cart/cartSlice";
+import { clearCart, getCart } from "../cart/cartSlice";
 import { getUsername } from "../users/userSlice";
+import EmptyCart from "../cart/EmptyCart";
+import store from "../../src/store";
 
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -14,8 +16,9 @@ const isValidPhone = (str) =>
 function CreateOrder() {
   const cart = useSelector(getCart);
   const FormErrors = useActionData();
-
   const username = useSelector(getUsername);
+
+  if (!cart.length) return <EmptyCart />;
 
   return (
     <CreateOrderStyled>
@@ -84,6 +87,7 @@ export async function action({ request }) {
 
   // If everything is okay, create new order and redirect
   const newOrder = await createOrder(order);
+  store.dispatch(clearCart());
   return redirect(`/order/${newOrder.id}`);
 }
 
