@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const OrderItemStyled = styled.li`
   /* Box */
-  padding-block: 1.2rem;
+  padding-block: 1.4rem;
 
   &:not(:last-child) {
     border-bottom: 1px solid rgb(231 229 228);
@@ -25,5 +25,12 @@ export const OrderItemStyled = styled.li`
     p:last-child {
       font-weight: 700;
     }
+  }
+
+  & > p {
+    color: rgb(120 113 108);
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    font-style: italic;
   }
 `;
