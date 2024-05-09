@@ -4,6 +4,7 @@ import { OrderStyled } from "./OrderStyles";
 import { calcMinutesLeft, formatDate } from "../../utilities/helpers";
 import OrderItem from "./OrderItem";
 import { useEffect } from "react";
+import UpdateOrder from "./UpdateOrder";
 
 // Test ID: IIDSAT
 
@@ -69,6 +70,8 @@ function Order() {
         {priority && <p>Price priority: {priorityPrice}</p>}
         <p>To pay on delivery: {orderPrice + priorityPrice}</p>
       </div>
+
+      {!priority && <UpdateOrder />}
     </OrderStyled>
   );
 }
