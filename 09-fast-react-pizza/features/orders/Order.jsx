@@ -8,7 +8,7 @@ function Order() {
   const order = useLoaderData();
 
   const {
-    // id,
+    id,
     status,
     priority,
     priorityPrice,
@@ -20,7 +20,7 @@ function Order() {
   return (
     <OrderStyled>
       <div>
-        <h2>status</h2>
+        <h2>Order #{id} status</h2>
         <div>
           {priority && <span>Priority</span>}
           <span>{status} order</span>
