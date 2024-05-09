@@ -2,9 +2,9 @@ import { Form, redirect, useActionData, useNavigation } from "react-router-dom";
 import { CreateOrderStyled, FormStyled } from "./CreateOrderStyled";
 import { createOrder } from "../../services/apiRestaurant";
 import Button from "../../ui/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearCart, getCart, getTotalCartPrice } from "../cart/cartSlice";
-import { getUsername } from "../users/userSlice";
+import { fetchAddress, getUserState } from "../users/userSlice";
 import EmptyCart from "../cart/EmptyCart";
 import store from "../../src/store";
 import { useState } from "react";
@@ -17,7 +17,7 @@ const isValidPhone = (str) =>
 function CreateOrder() {
   const cart = useSelector(getCart);
   const formErrors = useActionData();
-  const username = useSelector(getUsername);
+
   const totalCartPrice = useSelector(getTotalCartPrice);
   const [withPriority, setWithPriority] = useState(false);
   const priorityPrice = withPriority ? 0.2 * totalCartPrice : 0;
@@ -25,6 +25,22 @@ function CreateOrder() {
 
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
+
+  const {
+    username,
+    status: addressStatus,
+    position,
+    address,
+    error: addressError,
+  } = useSelector(getUserState);
+
+  const isLoadingAddress = addressStatus === "loading";
+  const dispatch = useDispatch();
+
+  function handleGetAddress(e) {
+    e.preventDefault();
+    dispatch(fetchAddress());
+  }
 
   if (!cart.length) return <EmptyCart />;
 
@@ -44,7 +60,9 @@ function CreateOrder() {
           <label>Phone number</label>
           <div>
             <input type="tel" name="phone" required />
-            {formErrors?.phoneError && <p>{formErrors.phoneError}</p>}
+            {formErrors?.phoneError && (
+              <p className="error">{formErrors.phoneError}</p>
+            )}
           </div>
         </div>
 
@@ -52,11 +70,28 @@ function CreateOrder() {
         <div>
           <label>Address</label>
           <div>
-            <input type="text" name="address" required />
+            <input
+              type="text"
+              name="address"
+              required
+              disabled={isLoadingAddress}
+              defaultValue={address}
+            />
+            {addressStatus === "error" && (
+              <p className="error">{addressError}</p>
+            )}
           </div>
-          <span>
-            <Button type="small">Get position</Button>
-          </span>
+          {!position.latitude && !position.longitude && (
+            <span>
+              <Button
+                type="small"
+                onClick={handleGetAddress}
+                disabled={isLoadingAddress}
+              >
+                Get position
+              </Button>
+            </span>
+          )}
         </div>
 
         {/* ORDER PRIORITY */}
@@ -74,7 +109,7 @@ function CreateOrder() {
         {/* CART and SUBMIT BUTTON */}
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <Button type="primary" disabled={isSubmitting}>
+          <Button type="primary" disabled={isSubmitting || isLoadingAddress}>
             {isSubmitting ? "Placing order..." : `Order now from ${finalPrice}`}
           </Button>
         </div>
