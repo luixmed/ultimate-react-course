@@ -7,7 +7,7 @@ export const OrderStyled = styled.div`
     margin-bottom: 3.2rem;
   }
 
-  div:first-child {
+  & > div:first-child {
     /* Layout */
     display: flex;
     align-items: center;
@@ -62,6 +62,10 @@ export const OrderStyled = styled.div`
       color: rgb(120 113 107);
       font-size: 1.2rem;
     }
+  }
+
+  & > ul {
+    border-block: 1px solid rgb(231 229 228);
   }
 
   & > div:last-child {
