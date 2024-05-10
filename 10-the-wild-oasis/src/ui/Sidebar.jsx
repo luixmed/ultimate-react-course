@@ -11,6 +11,10 @@ const StyledSidebar = styled.aside`
 
   /* Layout */
   grid-row: 1 / -1;
+
+  & > *:first-child {
+    margin-bottom: 3.2rem;
+  }
 `;
 function Sidebar() {
   return (
