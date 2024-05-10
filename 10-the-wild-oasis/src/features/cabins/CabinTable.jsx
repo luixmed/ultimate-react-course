@@ -1,4 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
+import { getCabins } from "../../services/apiCabins";
 
 const Table = styled.div`
   /* Box */
@@ -35,6 +37,14 @@ const TableHeader = styled.header`
 `;
 
 function CabinTable() {
+  const {
+    data: cabins,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["cabins"],
+    queryFn: getCabins,
+  });
   return <div>TABLE</div>;
 }
 
