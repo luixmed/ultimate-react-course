@@ -31,14 +31,27 @@ function CreateCabinForm({ cabinToEdit = {} }) {
     },
     onError: (err) => toast.error(err.message),
   });
+  const { mutate: editCabin, isLoading: isEditing } = useMutation({
+    mutationFn: ({ newCabinData, id }) => createEditCabin(newCabinData, id),
+    onSuccess: () => {
+      toast.success("Cabin successfully edited");
+      queryClient.invalidateQueries({
+        queryKey: ["cabins"],
+      });
+    },
+    onError: (err) => toast.error(err.message),
+  });
 
   function onSubmit(data) {
-    mutate({ ...data, image: data.image[0] });
+    console.log("DATA", data);
+    const image = typeof data.image === "string" ? data.image : data.image[0];
+
+    if (isEditSession)
+      editCabin({ newCabinData: { ...data, image }, id: editId });
+    else createCabin({ ...data, image: data.image[0] });
   }
 
-  // function onError(error) {
-  //   console.log(error);
-  // }
+  const isWorking = isCreating || isEditing;
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
