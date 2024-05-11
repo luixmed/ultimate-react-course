@@ -36,8 +36,7 @@ function CreateCabinForm() {
   // }
 
   return (
-    // eslint-disable-next-line no-undef
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           type="text"
