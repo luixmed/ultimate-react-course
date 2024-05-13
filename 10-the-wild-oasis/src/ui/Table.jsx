@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import styled from "styled-components";
+import Empty from "./Empty";
 
 const StyledTable = styled.div`
   /* Font */
@@ -49,6 +50,10 @@ const StyledRow = styled(CommonRow)`
   }
 `;
 
+const StyledBody = styled.section`
+  margin-block: 0.4rem;
+`;
+
 const Footer = styled.footer`
   /* Layout */
   display: flex;
@@ -94,11 +99,16 @@ function Row({ children }) {
     </StyledRow>
   );
 }
-// function Body({ children }) {}
+
+function Body({ data, render }) {
+  if (!data.length) return <Empty resource="data" />;
+
+  return <StyledBody>{data.map(render)}</StyledBody>;
+}
 
 Table.Header = Header;
 Table.Row = Row;
-// Table.Body = Body;
+Table.Body = Body;
 Table.Footer = Footer;
 
 export default Table;
