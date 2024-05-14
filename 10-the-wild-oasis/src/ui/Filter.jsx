@@ -29,18 +29,6 @@ const FilterButton = styled.button`
   /* Style */
   background-color: var(--color-grey-0);
 
-  /* ${(props) =>
-    props.active &&
-    css`
-      color: var(--color-brand-50);
-      background-color: var(--color-brand-600);
-    `} */
-
-  &:active {
-    color: var(--color-brand-50);
-    background-color: var(--color-brand-600);
-  }
-
   /* Animation */
   transition: all 0.3s;
 
@@ -48,10 +36,19 @@ const FilterButton = styled.button`
     color: var(--color-brand-50);
     background-color: var(--color-brand-600);
   }
+
+  ${(props) =>
+    props.active &&
+    css`
+      color: var(--color-brand-50);
+      background-color: var(--color-brand-600);
+    `}
 `;
 
 function Filter({ filterField, options }) {
   const [searchParams, setSearchParams] = useSearchParams();
+  const currentFilterValue =
+    searchParams.get(filterField) || options.at(0).value;
 
   function handleClick(value) {
     searchParams.set(filterField, value);
@@ -64,6 +61,7 @@ function Filter({ filterField, options }) {
         <FilterButton
           onClick={() => handleClick(option.value)}
           key={option.value}
+          active={option.value === currentFilterValue}
         >
           {option.label}
         </FilterButton>
