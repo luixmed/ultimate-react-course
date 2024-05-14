@@ -1,7 +1,7 @@
 import supabase from "./supabase";
 
 export async function getBookings() {
-  const { data, error } = supabase.from("bookings").select("*");
+  const { data, error } = await supabase.from("bookings").select("*");
 
   if (error) {
     console.error(error.message);
