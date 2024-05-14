@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledFilter = styled.div`
   /* Box */
@@ -27,6 +27,18 @@ const FilterButton = styled.button`
 
   /* Style */
   background-color: var(--color-grey-0);
+
+  /* ${(props) =>
+    props.active &&
+    css`
+      color: var(--color-brand-50);
+      background-color: var(--color-brand-600);
+    `} */
+
+  &:active {
+    color: var(--color-brand-50);
+    background-color: var(--color-brand-600);
+  }
 
   /* Animation */
   transition: all 0.3s;
