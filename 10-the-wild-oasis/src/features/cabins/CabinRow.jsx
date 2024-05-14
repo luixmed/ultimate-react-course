@@ -50,6 +50,7 @@ function CabinRow({ cabin }) {
   } = cabin;
 
   const { isDeleting, deleteCabin } = useDeleteCabin();
+  // eslint-disable-next-line no-unused-vars
   const { isCreating, createCabin } = useCreateCabin();
 
   function handleDuplicateCabin() {
