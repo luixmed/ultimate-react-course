@@ -17,7 +17,7 @@ export function useBookings() {
         };
 
   // SORT
-  const sortByValue = searchParams.get("sortBy");
+  const sortByValue = searchParams.get("sortBy") || "startDate-desc";
   const [field, direction] = sortByValue.split("-");
   const sortBy = { field, direction };
 
