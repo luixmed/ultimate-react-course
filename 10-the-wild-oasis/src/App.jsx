@@ -11,6 +11,7 @@ import Account from "./pages/Account";
 import Login from "./pages/Login";
 import AppLayout from "./ui/AppLayout";
 import Cabins from "./pages/Cabins";
+import PageNotFound from "./pages/PageNotFound";
 // import PageNotFound from "./pages/PageNotFound";
 
 const queryClient = new QueryClient({
@@ -40,7 +41,7 @@ function App() {
           </Route>
 
           <Route path="login" element={<Login />} />
-          {/* <Route path="*" element={<PageNotFound />} /> */}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
 
