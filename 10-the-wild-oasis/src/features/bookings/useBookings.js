@@ -16,13 +16,18 @@ export function useBookings() {
           method: "eq",
         };
 
+  // SORT
+  const sortByValue = searchParams.get("sortBy");
+  const [field, direction] = sortByValue.split("-");
+  const sortBy = { field, direction };
+
   const {
     isLoading,
     error,
     data: bookings,
   } = useQuery({
-    queryKey: ["bookings", filter],
-    queryFn: () => getBookings({ filter }),
+    queryKey: ["bookings", filter, sortBy],
+    queryFn: () => getBookings({ filter, sortBy }),
   });
 
   return { isLoading, error, bookings };
