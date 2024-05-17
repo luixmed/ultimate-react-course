@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import LoginForm from "../features/authentication/LoginForm";
 
 const LoginLayout = styled.main`
   /* Box */
@@ -16,7 +17,11 @@ const LoginLayout = styled.main`
 `;
 
 function Login() {
-  return <LoginLayout>Login</LoginLayout>;
+  return (
+    <LoginLayout>
+      <LoginForm />
+    </LoginLayout>
+  );
 }
 
 export default Login;
